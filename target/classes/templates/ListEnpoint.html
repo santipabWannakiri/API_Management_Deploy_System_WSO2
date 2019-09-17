@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<h1>WSO2 Endpoint Information</h1>
+			<p>The information at below show Dev,QAS and Status Endpoint </p>
+			<p>Source : <span th:text="${source}"></span></p>
+			<p>Target : <span th:text="${target}"></span></p>
+			<a class="btn btn-sm btn-primary btn-create" th:href="@{'/home'}"> HOME</a>
+				<div class="panel-body">
+					<table class="table table-striped table-bordered table-list">
+						<thead>
+							<tr>
+								<th>Number</th>
+								<th>API Name</th>
+								<th>Production Endpoint</th>
+								<th>Sandbox Endpoint</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="ls : ${productList}">
+								<td><span th:text="${ls.num}"> </span></td>
+								<td><span th:text="${ls.name}"> </span></td>
+								<td><span th:text="${ls.productionEndpoint}"> </span></td>
+								<td><span th:text="${ls.sandboxEndpoint}"> </span></td>
+								<td><span th:text="${ls.status}"> </span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+		</div>
+	</div>
+</body>
+</html>

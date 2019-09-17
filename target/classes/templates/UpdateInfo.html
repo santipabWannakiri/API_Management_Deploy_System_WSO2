@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+<title>WSO2 Deployment APIs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	rel="stylesheet">
+<style type="text/css">
+body {
+	background-color: #e9ebee;
+}
+
+.card {
+	margin-top: 1em;
+}
+
+/* IMG displaying */
+.person-card {
+	margin-top: 5em;
+	padding-top: 5em;
+}
+
+.person-card .card-title {
+	text-align: center;
+}
+
+.person-card .person-img {
+	width: 10em;
+	position: absolute;
+	top: -5em;
+	left: 50%;
+	margin-left: -5em;
+	border-radius: 100%;
+	overflow: hidden;
+	background-color: white;
+}
+</style>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<div class="container" style="margin-top: 1em;">
+		<!-- Sign up form -->
+		<form th:object="${AuthParam}" method="post" th:action="${'/wso2/saveUpdate'}">
+			<!-- Sign up card -->
+			<div class="card person-card">
+				<div class="card-body">
+					<!-- Sex image -->
+					<img id="img_sex" class="person-img"
+						src="https://visualpharm.com/assets/217/Life%20Cycle-595b40b75ba036ed117d9ef0.svg">
+					<h2 id="who_message" class="card-title">WSO2 Update APIs</h2>
+					<!-- First row (on medium screen) -->
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6" style="">
+					<div class="card">
+						<div class="card-body">
+							<h2 class="card-title">Source</h2>
+							<div class="form-group">
+								<label for="gateway" class="col-form-label">Gateway URI</label>
+								<input type="text" class="form-control" id="gateway" th:field="*{gateway_uri_source}"
+									placeholder="Ex. https://pttgw.pttplc.com" required>
+							</div>
+							<div class="form-group">
+								<label for="portal" class="col-form-label">Portal URI</label> <input
+									type="text" class="form-control" id="portal" th:field="*{portal_uri_source}"
+									placeholder="Ex. https://pttapi.pttplc.com" required>
+							</div>
+							<div class="form-group">
+								<label for="Authorization" class="col-form-label">Authorization</label>
+								<input type="text" class="form-control" id="Authorization" th:field="*{authorization_source}"
+									placeholder="" required>
+							</div>
+							<div class="form-group">
+								<label for="username" class="col-form-label">Username</label> <input
+									type="text" class="form-control" id="username" th:field="*{username_source}" required>
+							</div>
+							<div class="form-group">
+								<label for="password" class="col-form-label">Password</label> <input
+									type="text" class="form-control" id="password" th:field="*{password_source}" required>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="card">
+						<div class="card-body">
+							<h2 class="card-title">Destination</h2>
+							<div class="form-group">
+								<label for="gateway" class="col-form-label">Gateway URI</label>
+								<input type="text" class="form-control" id="gateway" th:field="*{gateway_uri_target}"
+									placeholder="Ex. https://pttgw.pttplc.com" required>
+							</div>
+							<div class="form-group">
+								<label for="portal" class="col-form-label">Portal URI</label> <input
+									type="text" class="form-control" id="portal" th:field="*{portal_uri_target}"
+									placeholder="Ex. https://pttapi.pttplc.com" required>
+							</div>
+							<div class="form-group">
+								<label for="Authorization" class="col-form-label">Authorization</label>
+								<input type="text" class="form-control" id="Authorization" th:field="*{authorization_target}"
+									placeholder="" required>
+							</div>
+							<div class="form-group">
+								<label for="username" class="col-form-label">Username</label> <input
+									type="text" class="form-control" id="username" th:field="*{username_target}" required>
+							</div>
+							<div class="form-group">
+								<label for="password" class="col-form-label">Password</label> <input
+									type="text" class="form-control" id="password" th:field="*{password_target}" required>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+				<button type="submit" class="btn btn-primary btn-lg btn-block">Submit!</button>
+			
+		</form>
+	</div>
+</body>
+</html>
